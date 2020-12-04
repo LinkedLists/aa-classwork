@@ -43,8 +43,16 @@ class PolyTreeNode
             search_result = child.dfs(target_value)
             return search_result if search_result != nil
         end
-
         nil
+    end
+
+    def bfs(target_value)
+        arr = [self]
+        until arr.empty?
+            ele = arr.shift
+            return ele if ele.value == target_value
+            arr.push(*ele.children)
+        end
     end
     
 end
