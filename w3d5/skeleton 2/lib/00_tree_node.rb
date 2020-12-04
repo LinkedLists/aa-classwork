@@ -9,29 +9,36 @@ class PolyTreeNode
     end
 
     def parent=(value)
-        # debugger
-        # old_parent = self.parent
+
         if @parent != nil 
             @parent.children.delete(self)
         end
-        # if value != nil
-        # if value != nil && @parent != nil
-            # 
+
         @parent = value
         if value != nil
             if !@parent.children.include?(self)
                 @parent.children << self
             end
         end
-        # else
-            
-        # end
 
     end
 
+    def add_child(child)
+        child.parent = self
+    end
+
+    def remove_child(child)
+        if !@children.include?(child)
+            raise 'Not my child'
+        end
+        @children.delete(child)
+        child.parent = nil
+    end
+
+    def dfs(target_value)
+        # return self if self.value == target_value
+        # return self if self.child == []
+        
+    end
     
 end
-
-a = PolyTreeNode.new(1)
-b = PolyTreeNode.new(2)
-a.parent = nil
