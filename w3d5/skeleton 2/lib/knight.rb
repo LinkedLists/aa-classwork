@@ -6,8 +6,21 @@ class KnightPathFinder
     #::valid_moves(pos) => returns an array, needs to check with @considered_positions
 
     self.valid_moves(pos)
-        possible_moves = [ [2, 1], [1, 2], [-2, 1], [-2, -1], [-1, 2]  ]
+        x = pos[0]
+        y = pos[1]
+        
+        possible_moves = [ [2, 1], [1, 2], [-2, 1], [-2, -1], [-1, 2], [2, -1], [1, -2], [-1, -2] ]
 
+        possible_moves.map! do |pair|
+            pair[0] += x
+            pair[1] += y
+            pair
+        end
+
+        possible_moves.select! do |pair|
+            pair[0] >= 0 && pair[0] < 8 && pair[1] >= 0 && pair[1] < 8
+        end
+                    
     end
 
     def initialize(pos)
@@ -16,3 +29,6 @@ class KnightPathFinder
     end
 
 end
+
+test = KnightPathFinder.new([0, 0])
+p test
