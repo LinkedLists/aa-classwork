@@ -54,20 +54,15 @@ class KnightPathFinder
     end
 
     def find_path(end_pos)
-        #bfs or dfs on self.root_node
-        #traceback found_node => array of parents
+        end_node = root_node.bfs(end_pos)
+
+        trace_back(end_node)
     end
 
     def trace_back(node)
-        #basecase => return [node.value] if node == @root_node
+        return [node.value] if node == @root_node
 
-        #trace_back(node.parent) + [node.value]
-
-
-        #basecase => node == @root_node
-
-        #arr = [node.value]
-        #arr << trace_back(node.parent.value) 
+        trace_back(node.parent) + [node.value] 
     end
 
 end
@@ -76,9 +71,10 @@ test = KnightPathFinder.new([0, 0])
 # print KnightPathFinder.valid_moves([6, 7])
 # [[4, 6], [7, 5], [5, 5]]
 # p test.new_moves_position([6, 7])
-p test.root_node
-test.build_move_tree
-p test.root_node
-# p test.considered_positions.length
 
-# p test.root_node.bfs([2, 1])
+test.build_move_tree
+
+# p test.find_path([4, 2])
+
+p test.find_path([7, 6]) # => [[0, 0], [1, 2], [2, 4], [3, 6], [5, 5], [7, 6]]
+p test.find_path([6, 2]) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
