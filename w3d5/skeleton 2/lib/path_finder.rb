@@ -60,5 +60,9 @@ test = KnightPathFinder.new([0, 0])
 # print KnightPathFinder.valid_moves([6, 7])
 # [[4, 6], [7, 5], [5, 5]]
 # p test.new_moves_position([6, 7])
-# p test
-print test.build_move_tree
+p test.root_node
+test.build_move_tree
+p test.root_node
+# p test.considered_positions.length
+
+# p test.root_node.bfs([2, 1])
