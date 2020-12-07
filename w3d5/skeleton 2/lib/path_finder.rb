@@ -8,14 +8,10 @@ require "byebug"
 
 class KnightPathFinder
     attr_accessor :considered_positions, :root_node
+
     def initialize(pos)
         @root_node = PolyTreeNode.new(pos)
-        @considered_positions = [@root_node]
-    end
-
-    def new_moves_position(pos)
-        possible_pos = KnightPathFinder.valid_moves(pos)
-        possible_pos.reject! { |a_pos| @considered_positions.include?(a_pos) }
+        @considered_positions = [ @root_node.value ]
     end
 
     def self.valid_moves(pos)
@@ -36,8 +32,24 @@ class KnightPathFinder
 
         possible_moves
     end
+
+    def new_moves_position(pos)
+        possible_pos = KnightPathFinder.valid_moves(pos)
+        possible_pos.reject! { |a_pos| @considered_positions.include?(a_pos) }
+        possible_pos
+    end
+
+    def build_move_tree
+        # queue = [self.root_node]
+        # until queue.empty?
+        # 
+    end
+
+
 end
 
 test = KnightPathFinder.new([0, 0])
 print KnightPathFinder.valid_moves([6, 7])
+# [[4, 6], [7, 5], [5, 5]]
+p test.new_moves_position([6, 7])
 # p test
