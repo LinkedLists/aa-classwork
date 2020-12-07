@@ -53,6 +53,22 @@ class KnightPathFinder
         end
     end
 
+    def find_path(end_pos)
+        #bfs or dfs on self.root_node
+        #traceback found_node => array of parents
+    end
+
+    def trace_back(node)
+        #basecase => return [node.value] if node == @root_node
+
+        #trace_back(node.parent) + [node.value]
+
+
+        #basecase => node == @root_node
+
+        #arr = [node.value]
+        #arr << trace_back(node.parent.value) 
+    end
 
 end
 
