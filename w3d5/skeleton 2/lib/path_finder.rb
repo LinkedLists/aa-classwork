@@ -7,18 +7,18 @@ require "byebug"
     #::valid_moves(pos) => returns an array, needs to check with @considered_positions
 
 class KnightPathFinder
-
+    attr_accessor :considered_positions, :root_node
     def initialize(pos)
         @root_node = PolyTreeNode.new(pos)
         @considered_positions = [@root_node]
-
     end
 
     def new_moves_position(pos)
-        if !@considered_positions.include?(pos)
+        possible_pos = KnightPathFinder.valid_moves(pos)
+        possible_pos.reject! { |a_pos| @considered_positions.include?(a_pos) }
     end
 
-    self.valid_moves(pos)
+    def self.valid_moves(pos)
         x = pos[0]
         y = pos[1]
 
@@ -33,9 +33,11 @@ class KnightPathFinder
         possible_moves.select! do |pair|
             (pair[0] >= 0 && pair[0] < 8) && (pair[1] >= 0 && pair[1] < 8)
         end
+
+        possible_moves
     end
 end
 
 test = KnightPathFinder.new([0, 0])
-
-p test
+print KnightPathFinder.valid_moves([6, 7])
+# p test
