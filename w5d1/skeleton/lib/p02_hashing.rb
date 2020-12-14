@@ -4,7 +4,9 @@ end
 
 class Array
   def hash
-    
+    num = self.join("").to_i
+    num = num.to_s(2)
+    num.to_i
   end
 end
 
