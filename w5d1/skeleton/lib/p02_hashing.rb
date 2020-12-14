@@ -1,3 +1,5 @@
+require "byebug"
+
 class Integer
   # Integer#hash already implemented for you
 end
@@ -12,6 +14,15 @@ end
 
 class String
   def hash
+    alpha = ('a'..'z').to_a
+    sum = ""
+    self.each_char do |char|
+      # debugger
+      num = alpha.index(char.downcase)
+      num2 = num.to_s(2)
+      sum += num2
+    end
+    sum.to_i
   end
 end
 
