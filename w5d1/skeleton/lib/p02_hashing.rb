@@ -30,6 +30,21 @@ class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
   def hash
-    0
+    values = self.values.sort
+
+    alpha = ('a'..'z').to_a
+    sum = ""
+    values.each do |char|
+      # debugger
+      if alpha.include?(char)
+        num = alpha.index(char.downcase)
+        num2 = num.to_s(2)
+        sum += num2
+      else
+        sum += char.to_s(2)
+      end
+    end
+    sum.to_i
+
   end
 end
