@@ -1,3 +1,5 @@
+require "byebug"
+
 class Node
   attr_reader :key
   attr_accessor :val, :next, :prev
@@ -33,15 +35,15 @@ class LinkedList
   end
 
   def first
-    @head
+    @head.next
   end
 
   def last
-    @tail
+    @tail.prev
   end
 
   def empty?
-    # @tail.prev == @head && @head.next == @tail
+    @tail.prev == @head && @head.next == @tail
   end
 
   def get(key)
@@ -66,6 +68,15 @@ class LinkedList
   end
 
   def each
+    values = []
+    current_node = first
+    until current_node == @tail
+      # debugger
+      values << current_node.val #if current_node != @head && current_node != @tail
+      current_node = current_node.next
+    end
+    # debugger
+    return values
   end
 
   # uncomment when you have `each` working and `Enumerable` included
