@@ -72,11 +72,12 @@ class LinkedList
     current_node = first
     until current_node == @tail
       # debugger
-      values << current_node.val #if current_node != @head && current_node != @tail
+      # values << current_node.val #if current_node != @head && current_node != @tail
+      yield current_node
       current_node = current_node.next
     end
     # debugger
-    return values
+    # values
   end
 
   # uncomment when you have `each` working and `Enumerable` included
