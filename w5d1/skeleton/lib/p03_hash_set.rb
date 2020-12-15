@@ -7,20 +7,30 @@ class HashSet
   end
 
   def insert(key)
-
+    if !include?(key)
+      self[count] << key
+      @count += 1
+      resize! if @count == num_buckets
+    end
   end
 
   def include?(key)
+    @store.each { |bucket| return true if bucket.include?(key)}
+    false
   end
 
   def remove(key)
+    if include?(key)
+      @store.each { |bucket| bucket.delete(key) if bucket.include?(key)}
+      @count -= 1
+    end
   end
 
   private
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
-    @store[num % num_buckets]
+    @store[count % num_buckets]
   end
 
   def num_buckets
