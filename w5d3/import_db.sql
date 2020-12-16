@@ -17,9 +17,12 @@ CREATE TABLE users(
 );
 
 CREATE TABLE questions(
+    question_id INTEGER PRIMARY KEY,
     title TEXT,
     body TEXT,
-    question_id INTEGER PRIMARY KEY
+    author_id INTEGER,
+
+    FOREIGN KEY (author_id) REFERENCES users(user_id)
     -- qf_id INTEGER,
 
     -- FOREIGN_KEY (qf_id) REFERENCES question_follows(id)
@@ -54,3 +57,74 @@ CREATE TABLE question_likes(
     FOREIGN KEY (u_id) REFERENCES users(user_id)
 );
 
+INSERT INTO users (
+  user_id,
+  fname,
+  lname
+)
+VALUES (
+  1,
+  'Kenny',
+  'Z'
+);
+INSERT INTO users (
+  user_id,
+  fname,
+  lname
+)
+VALUES (
+  2,
+  'David',
+  'C'
+);
+INSERT INTO users (
+  user_id,
+  fname,
+  lname
+)
+VALUES (
+  3,
+  'Ryan',
+  'Z'
+);
+
+    -- title TEXT,
+    -- body TEXT,
+    -- question_id INTEGER PRIMARY KEY
+
+INSERT INTO questions (
+  question_id,
+  title,
+  body,
+  author_id
+)
+VALUES (
+  1,
+  'Kenny Question',
+  'kennykennny',
+  1
+);
+INSERT INTO questions (
+  question_id,
+  title,
+  body,
+  author_id
+)
+VALUES (
+  2,
+  'david Question',
+  'davidvadivaivdiav',
+  2
+);
+INSERT INTO questions (
+  question_id,
+  title,
+  body,
+  author_id
+)
+VALUES (
+  3,
+  'Ryan Question',
+  'ryyananann',
+  3
+);
