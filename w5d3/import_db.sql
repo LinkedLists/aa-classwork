@@ -3,14 +3,14 @@ PRAGMA foreign_keys = ON;
 DROP TABLE IF EXISTS question_follows;
 DROP TABLE IF EXISTS replies;
 DROP TABLE IF EXISTS question_likes;
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS questions;
+DROP TABLE IF EXISTS users;
 
 
 CREATE TABLE users(
+    user_id INTEGER PRIMARY KEY,
     fname TEXT,
-    lname TEXT,
-    user_id INTEGER PRIMARY KEY
+    lname TEXT
     -- qf_id INTEGER,
 
     -- FOREIGN_KEY (qf_id) REFERENCES question_follows(id)
