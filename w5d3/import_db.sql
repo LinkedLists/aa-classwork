@@ -38,10 +38,10 @@ CREATE TABLE question_follows(
 );
 
 CREATE TABLE replies(
+    reply_id INTEGER PRIMARY KEY, -- pk is usually 'id'
     question_id INTEGER NOT NULL,
     parent_id INTEGER,
-    reply_id INTEGER PRIMARY KEY,
-    user_id INTEGER,
+    user_id INTEGER NOT NULL,
     body_text TEXT,
     FOREIGN KEY (parent_id) REFERENCES replies(reply_id),
     FOREIGN KEY (question_id) REFERENCES questions(question_id),

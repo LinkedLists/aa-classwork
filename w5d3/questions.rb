@@ -89,6 +89,10 @@ class Question
     Question.new(question.last)
   end
 
+  def replies
+    Replies.find_by_question_id(question_id)
+  end
+
   def initialize(options)
     @question_id = options['question_id']
     @body = options['body']
@@ -118,6 +122,20 @@ class QuestionFollows
     QuestionFollows.new(question_follow.first)
   end
 
+  def self.followers_for_question_id(question_id)
+    question_follow = PlayDBConnection.instance.execute(<<-SQL, id)
+    SELECT
+      *
+    FROM
+      question_follows
+    WHERE
+      id = ?
+    SQL
+    return nil unless question_follow.length > 0
+  QuestionFollows.new(question_follow.first)
+
+  end
+
   def initialize(options)
     @id = options['id']
     @q_id = options['q_id']
@@ -126,4 +144,69 @@ class QuestionFollows
 end
 
 class Replies
+  attr_accessor :reply_id, :question_id, :parent_id, :user_id, :body_text
+
+  def self.all
+    data = PlayDBConnection.instance.execute("SELECT * FROM replies")
+    data.map { |datum| Replies.new(datum) }
+  end
+
+  def self.find_by_id(id)
+    reply = PlayDBConnection.instance.execute(<<-SQL, id)
+      SELECT
+        *
+      FROM
+        replies
+      WHERE
+        reply_id = ?
+    SQL
+    return nil unless reply.length > 0
+    Replies.new(reply.first)
+  end
+
+  def self.find_by_question_id(id)
+    reply = PlayDBConnection.instance.execute(<<-SQL, id)
+      SELECT
+        *
+      FROM
+        replies
+      WHERE
+        question_id = ?
+    SQL
+    return nil unless reply.length > 0
+    Replies.new(reply.first)
+  end
+
+  def author
+    Users.find_by_id(user_id)
+  end
+
+  def question
+    Questions.find_by_id(question_id)
+  end
+
+  def parent_reply
+    Replies.find_by_id(parent_id)
+  end
+
+  def child_replies
+    replies = PlayDBConnection.instance.execute(<<-SQL, reply_id)
+    SELECT
+      *
+    FROM
+      replies
+    WHERE
+      parent_id = ?
+    SQL
+    return nil unless replies.length > 0
+    Replies.new(replies.first)
+  end
+
+  def initialize(options)
+    @reply_id = options['reply_id']
+    @question_id = options['question_id']
+    @parent_id = options['parent_id']
+    @user_id = options['user_id']
+    @body_text = options['body_text']
+  end
 end
