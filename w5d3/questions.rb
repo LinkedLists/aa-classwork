@@ -123,16 +123,25 @@ class QuestionFollows
   end
 
   def self.followers_for_question_id(question_id)
-    question_follow = PlayDBConnection.instance.execute(<<-SQL, id)
-    SELECT
-      *
-    FROM
-      question_follows
-    WHERE
-      id = ?
+    question_follow = PlayDBConnection.instance.execute(<<-SQL, question_id)
+      SELECT
+        *
+      FROM
+        users
+      JOIN
+        question_follows ON users.user_id = questions_follows.u_id 
+      WHERE
+        questions_follows.q_id = ?
     SQL
     return nil unless question_follow.length > 0
   QuestionFollows.new(question_follow.first)
+
+SELECT
+  users.name, posts.title
+FROM
+  posts
+JOIN
+  users ON posts.user_id = users.id
 
   end
 
