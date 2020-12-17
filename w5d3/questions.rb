@@ -31,6 +31,23 @@ class Users
     Users.new(user.first)
   end
 
+  def authored_questions
+    Question.find_by_author_id(user_id)
+  end
+
+  def self.find_by_name(first, last)
+    user = PlayDBConnection.instance.execute(<<-SQL, first, last)
+      SELECT
+        *
+      FROM
+        users
+      WHERE
+        fname = ? AND lname = ?
+    SQL
+    return nil unless user.length > 0
+    Users.new(user.first)
+  end
+
   def initialize(options)
     @user_id = options['user_id']
     @fname = options['fname']
@@ -57,6 +74,19 @@ class Question
     SQL
     return nil unless question.length > 0
     Question.new(question.first)
+  end
+
+  def self.find_by_author_id(author_id)
+    question = PlayDBConnection.instance.execute(<<-SQL, author_id)
+      SELECT
+        *
+      FROM
+        questions
+      WHERE
+        author_id = ?
+    SQL
+    return nil unless question.length > 0
+    Question.new(question.last)
   end
 
   def initialize(options)
@@ -96,3 +126,4 @@ class QuestionFollows
 end
 
 class Replies
+end
