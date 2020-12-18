@@ -7,14 +7,12 @@ def what_was_that_one_with(those_actors)
     .where("name IN (?)", those_actors)
     .group("movies.id")
     .having("COUNT(actors.id) >= (?)", those_actors.length)
-
-
-
-
 end
 
 def golden_age
   # Find the decade with the highest average movie score.
+  
+  Movie.select("AVG(score) AS average")
 
 end
 
