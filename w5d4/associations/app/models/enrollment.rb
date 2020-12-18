@@ -5,11 +5,11 @@ class Enrollment < ApplicationRecord
         foreign_key: :student_id,
         class_name: :User
 
-    has_many :course,
+    belongs_to :course,
         primary_key: :id,
         foreign_key: :course_id,
         class_name: :Course
-    
+
 
 # select * from User where student_id = user_id
 
