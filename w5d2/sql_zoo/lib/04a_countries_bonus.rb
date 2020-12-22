@@ -29,7 +29,13 @@ def largest_in_continent
   # Find the largest country (by area) in each continent. Show the continent,
   # name, and area.
   execute(<<-SQL)
-  
+  select continent, name, area
+  from countries
+  where area IN (
+    select MAX(area)
+    from countries
+    group by continent 
+  )
   SQL
 end
 
@@ -37,5 +43,13 @@ def large_neighbors
   # Some countries have populations more than three times that of any of their
   # neighbors (in the same continent). Give the countries and continents.
   execute(<<-SQL)
+  select name, continent
+  from countries AS a
+  where population/3 > ALL (
+    select population
+    from countries AS b
+    where a.continent = b.continent
+    and a.name != b.name
+  )
   SQL
 end
