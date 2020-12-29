@@ -39,8 +39,17 @@ class SQLObject
 
   end
 
-  def self.finalize!
 
+  # cat = Cat.new
+  # cat.name = "Gizmo"
+  # cat.name #=> "Gizmo"
+  def self.finalize!
+    self.columns.each do |name|
+      define_method(name) do
+        self.attributes[name]
+      end
+      define_method("#{name}=") { |arg| self.attributes[name] = arg} #cat.name = "Gizmo" => cat.name=("Gizmo"), "Gizmo" is the arg
+    end
   end
 
   def self.table_name=(table_name)
