@@ -254,3 +254,53 @@ Processing by UsersController#create as */*
 Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/users?users=random" for ::1 at 2020-12-29 15:03:01 -0800
+Processing by UsersController#create as */*
+  Parameters: {"users"=>"random"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users?users=random" for ::1 at 2020-12-29 15:03:43 -0800
+Processing by UsersController#index as */*
+  Parameters: {"users"=>"random"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for ::1 at 2020-12-29 15:12:34 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2" for ::1 at 2020-12-29 15:12:49 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users?123=456&abc=1234" for ::1 at 2020-12-29 15:14:35 -0800
+Processing by UsersController#create as */*
+  Parameters: {"123"=>"456", "abc"=>"1234"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2" for ::1 at 2020-12-29 15:14:56 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/3" for ::1 at 2020-12-29 15:15:19 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for ::1 at 2020-12-29 15:15:37 -0800
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
