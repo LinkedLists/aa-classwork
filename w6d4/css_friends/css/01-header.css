@@ -8,21 +8,29 @@ body {
 
 .header {
   background-color: red;
-
+  display: block;
+  border-bottom: 3px solid skyblue;
 }
+
+/* .header-nav {
+  margin: auto;
+  width: 1000px;
+  background-color: red;
+  border-bottom: 3px solid skyblue;
+} */
 
 .header-nav {
   display: flex;
-  width: 100%;
   margin: auto;
   width: 1000px;
-  
+
 }
 
 
 .header-logo {
   border-right: 3px solid skyblue;
   border-left: 3px solid skyblue;
+  float: left;
 }
 
 .header-logo:hover {
@@ -32,14 +40,13 @@ body {
 
 .header-list {
   margin-left: auto;
-  margin-right: auto;
+
+  float: right;
   display: flex;
   border-right: 3px solid skyblue;
-  float: right;
 }
 
 .header-list li{
-  padding: 10px;
   border-left: 3px solid skyblue;
 }
 
