@@ -1,0 +1,24 @@
+/* PHASE 1: Header */
+
+body {
+  font-weight: default;
+  font-family: default;
+  size: default;
+}
+
+.header {
+  background-color: red;
+  display: block;
+}
+
+.header-nav {
+  display: flex
+}
+
+.header-logo {
+}
+
+.header-list {
+  margin-left: auto;
+  margin-right: auto;
+}
