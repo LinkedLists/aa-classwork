@@ -8,7 +8,7 @@
 
 ActiveRecord::Base.transaction do 
   User.destroy_all
-  u1 = User.create(name: 'User_1', email: 'abc@email.com')
+  u1 = User.create(username: 'User_1', email: 'abc@email.com')
 
 end
 
