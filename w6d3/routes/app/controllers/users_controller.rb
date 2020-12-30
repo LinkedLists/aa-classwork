@@ -4,17 +4,13 @@ class UsersController < ApplicationController
     render json: User.all
   end
 
- # app/controller/users_controller.rb
   def create
-    user = User.new(params.require(:user).permit(:name, :email))
-    # replace the `user_attributes_here` with the actual attribute keys
-    # user.save!
-    # render json: user
+    user = User.new(user_params)
 
     if user.save
       render json: user
     else
-      render json: user.errors.full_messages, status: :unprocessable_entity
+      render json: user.errors.full_messages, status: 422
     end
   end
   
@@ -27,18 +23,23 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
 
-    if user.update(params.require(:user).permit(:name, :email))
+    if user.update(user_params)
       render json: user
     else
       render json: user.errors.full_messages, status: :unprocessable_entity
     end
-
   end
 
   def destroy
     user = User.find(params[:id])
     user.destroy
     render json: user
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email)
   end
 
 end
