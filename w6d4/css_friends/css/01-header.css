@@ -1,15 +1,13 @@
 /* PHASE 1: Header */
 
 body {
-  font-weight: default;
-  font-family: default;
-  size: default;
+
 }
 
 .header {
   background-color: red;
   display: block;
-  border-bottom: 3px solid skyblue;
+  color: white;
 }
 
 /* .header-nav {
@@ -57,5 +55,5 @@ body {
 
 .header a {
   display: block;
-  padding: 10px;
+  padding: 15px;
 }
