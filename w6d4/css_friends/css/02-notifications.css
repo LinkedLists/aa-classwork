@@ -1,1 +1,7 @@
 /* PHASE 2: Notifications */
+
+.badge {
+  background-color: black;
+  border-right-style: 4px solid dotted;
+  border-radius: 50%;
+}
