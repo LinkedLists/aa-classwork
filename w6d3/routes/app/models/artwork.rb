@@ -17,7 +17,7 @@ class Artwork < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :User
 
-  belongs_to :artwork_shares,
+  has_many :artwork_shares,
     primary_key: :id,
     foreign_key: :artwork_id,
     class_name: :ArtworkShare
