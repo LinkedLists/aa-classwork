@@ -5,10 +5,12 @@ class SessionsController < ApplicationController
     end
 
     def create ##creates a new session 
-        @user = User.new(params[:user][:user_name], params[:user][:password])
+        @user = User.find_by_credentials(params[:user][:user_name], params[:user][:password])
 
-    if @user.save
+    if @user
         #after user.save login the user
+        # @user.reset_session_token!
+        session[:session_token] = @user.reset_session_token!
         redirect_to cats_url
     else
         render :new
