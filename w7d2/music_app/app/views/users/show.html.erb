@@ -1,8 +1,11 @@
 <h1>Hello <%= @user.email %></h1>
 
 <br>
-<form action="/session" method="POST">
 
 
-    <input type="submit" value="Sign Out">
-</form>
+<%# <form action="/session" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+
+  <input type="submit" value="Sign Out">
+</form> %>
+<%# moved to app.html %>
