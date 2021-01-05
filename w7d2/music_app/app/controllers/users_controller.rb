@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
         if @user.save
             login!(@user) #login method from app. controller
-            redirect_to users_url(@user)
+            redirect_to user_url(@user)
         else
             render :new
         end
