@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
 
     if @user
-      login(@user)
-      redirect_to user_url(@user)
+      login!(@user)
+      redirect_to users_url(@user)
     else
       render :new
     end

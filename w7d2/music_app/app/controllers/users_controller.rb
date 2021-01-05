@@ -6,11 +6,11 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(params.require(:user).permit(:email,:password)
+        @user = User.new(params.require(:user).permit(:email,:password))
 
         if @user.save
-            login(@user) #login method from app. controller
-            redirect_to user_url(@user)
+            login!(@user) #login method from app. controller
+            redirect_to users_url(@user)
         else
             render :new
         end

@@ -1,0 +1,15 @@
+<h1>This is the sign-up page!</h1>
+
+<form action="/users" method="POST">
+
+    <label>Email:
+        <input type="text" name="user[email]" value="<%= @user.email ? @user.email : "" %>">
+    </label>
+
+    <br>
+
+    <label>Password:
+        <input type="text" name="user[password]" value="">
+    </label>
+
+</form>
