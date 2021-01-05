@@ -1,2 +1,10 @@
 <%= render "band", { band: @band } %>
+
 <a href="<%= bands_url %>">Show all bands</a>
+<a href="<%= edit_band_url(@band) %>">Edit Band</a>
+
+<form action="<%= band_url(@band) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+
+    <input type="submit" value="Irrelevant">
+</form>

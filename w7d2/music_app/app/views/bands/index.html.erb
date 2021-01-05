@@ -1,6 +1,6 @@
 
 <ul>
   <% @bands.each do |band| %>
-      <%= render "band", { band: band } %>
+    <a href="<%= band_url(band) %>"> <%= render "band", { band: band } %> </a> 
   <% end %>
 </ul>
