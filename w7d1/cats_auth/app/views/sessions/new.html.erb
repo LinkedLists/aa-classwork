@@ -1,0 +1,10 @@
+<h1>Sign In Here</h1>
+<form action="/session" method="POST">
+  <label>Username</label>
+  <input type="text" name="user[user_name]" value="<%= @user.user_name %>">
+  <br>
+  <label>Password</label>
+  <input type="password" name="user[password]" value="">
+  <br>
+  <input type="submit" value="Log In">
+</form>
