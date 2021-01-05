@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :user_name, presence: :true, uniqueness: :true
   validates :password_digest, presence: :true
-  after_intialize :ensure_session_token
+  after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, pw)
     user = User.find_by(user_name: username)

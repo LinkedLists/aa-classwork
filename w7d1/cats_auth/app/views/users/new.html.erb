@@ -2,7 +2,9 @@
 <form action="/users" method="POST">
   <label>Username</label>
   <input type="text" name="user[user_name]" value="<%= @user.user_name %>">
-
+  <br>
   <label>Password</label>
-  <input type="password" name="user[password]">
+  <input type="password" name="user[password]" value="">
+  <br>
+  <input type="submit" value="Sign Up">
 </form>

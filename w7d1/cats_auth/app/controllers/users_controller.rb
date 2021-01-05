@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def create
-    @user = User.new(params[:user][:user_name], params[:user][:password])
+    @user = User.new(user_params)
 
     if @user.save
       #after user.save login the user
@@ -13,6 +13,11 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     render :new
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:user_name, :password)
   end
 
 end
