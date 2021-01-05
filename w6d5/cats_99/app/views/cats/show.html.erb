@@ -1,0 +1,37 @@
+
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2"> <%=@kitty.name%> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <td><%=@kitty.id %></td>
+        </tr>
+        <tr>
+            <td>Color</td>
+            <td><%= @kitty.color %></td>
+        </tr>
+             <tr>
+            <td>Birth Date</td>
+            <td><%=@kitty.birth_date %></td>
+
+        </tr>
+             <tr>
+            <td>Sex</td>
+            <td><%=@kitty.sex %></td>
+
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><%=@kitty.description %></td>
+        </tr>
+    </tbody>
+</table>
+
+<form action="<%=display_cat_url%>" method="GET">
+    <input type="submit" value="Return to All Cats">
+</form>
