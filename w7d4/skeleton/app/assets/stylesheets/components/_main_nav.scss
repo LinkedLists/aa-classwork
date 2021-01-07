@@ -1,5 +1,7 @@
 .main-nav {
-
+  // display: flex;
+  // justify-content: space-between;
+  padding: 10px;
 }
 
 .left-nav > ul,
@@ -13,12 +15,14 @@
     display: flex;
     align-content: row;
     > li {
-
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      text-transform: uppercase;
+      margin: 5px;
     }
   }
 
   span {
-
   }
 }
 
@@ -27,9 +31,11 @@
   > ul {
     display: flex;
     align-content: row;
+    justify-content: space-between;
     
     > li {
-  
+      margin: 5px;
+
     }
 
     > li:last-of-type {
@@ -38,11 +44,11 @@
   }
   
   i {
-
+    font-size: 20px;
   }
 }
 
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
-
+  background: $lightest-gray;
 }
