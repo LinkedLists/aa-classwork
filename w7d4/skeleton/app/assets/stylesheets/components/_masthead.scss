@@ -24,6 +24,10 @@
 		color: $dark-gray;
 	}
 
+	li:first-child {
+		font-weight: bold;
+	}
+
 	ul {
 		display: flex;
 	}
@@ -42,8 +46,13 @@
 	margin-bottom: 10px;
 
 	li {
+		float: left;
 		margin-left: 10px;
 		border-right: 1px solid $light-gray;
+	}
+
+	li:last-child {
+		border-right: none;
 	}
 
 	button {
