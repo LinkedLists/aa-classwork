@@ -1,5 +1,5 @@
 .main-nav {
-  margin: 0 auto;
+
 }
 
 .left-nav > ul,
@@ -10,6 +10,8 @@
 .left-nav {
   float: left;
   > ul {
+    display: flex;
+    align-content: row;
     > li {
 
     }
@@ -23,7 +25,9 @@
 .right-nav  {
   float: right;
   > ul {
-
+    display: flex;
+    align-content: row;
+    
     > li {
   
     }
