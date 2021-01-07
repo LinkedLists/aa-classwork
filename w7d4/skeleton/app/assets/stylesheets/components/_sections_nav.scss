@@ -1,0 +1,23 @@
+.section-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid grey;
+  // max-width: 800px;
+  // margin: 0 auto;
+}
+
+.section-box li {
+  float: left;
+  margin: 12px; 
+}
+
+.section-box li:hover {
+  background-color: grey;
+}
+
+#all {
+  text-decoration: underline;
+}
