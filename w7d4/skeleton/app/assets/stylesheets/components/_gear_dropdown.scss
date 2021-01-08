@@ -11,6 +11,7 @@
     top: 24px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    text-transform: uppercase;
 }
 
 // .drop_btn:hover + .dropdown{
@@ -26,15 +27,28 @@
 }
 
 
-#gear-dropdown li {
-    padding: 10px;
+#gear-dropdown li{
+    margin: 10px 0;
 }
 
+.editions {
+    border-bottom: 1px solid $light-gray;
+}
 .editions li:hover{
-    background: gray;
+    background: $light-gray;
 }
 
+.help{
+    color: $blue;
+}
 
+.help li:hover {
+    text-decoration: underline;
+}
+
+.dropdown-subtitle{
+
+}
 // #gear-dropdown{
 //     position: relative;
 //     display: inline-block
