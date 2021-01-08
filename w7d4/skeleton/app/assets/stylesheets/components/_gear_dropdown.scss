@@ -28,14 +28,23 @@
 
 
 #gear-dropdown li{
-    margin: 10px 0;
+    // margin: 5px 0;
+    padding: 5px 0;
 }
 
 .editions {
     border-bottom: 1px solid $light-gray;
 }
+
+.editions li{
+    color: $gray;
+    // padding: 5px;
+}
+
 .editions li:hover{
+    cursor: pointer;
     background: $light-gray;
+    color: black;
 }
 
 .help{
@@ -47,7 +56,9 @@
 }
 
 .dropdown-subtitle{
-
+    color: $gray;
+    font-weight: bold;
+    font-size: 8px;
 }
 // #gear-dropdown{
 //     position: relative;
