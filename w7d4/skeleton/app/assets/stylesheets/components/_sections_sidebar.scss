@@ -12,25 +12,34 @@
 
 .sections-sidebar {
   opacity: 0;
+  position: absolute;
+  float: left;
+  // top: 10px;
+  // bottom: 0px;
+  // top: 0px;
+  // right: 150px;
+  // left: 0px;
+  // z-index: 0;
 }
 
 .sections-sidebar.expand {
   opacity: 1;
-}
-
-.sections-sidebar {
-  position: relative;
+  // z-index: 3;
 }
 
 .sections-sidebar > ul {
   display: none;
   position: absolute;
+  // top: 0px;
+  // left: auto;
+  // bottom: 300px;
   /* use top, left, right, bottom to position */
 }
 .sections-sidebar:hover > ul {
   /* applies the following style to uls inside .dropdown */
   /* but only when .dropdown is being hovered over */
   display: block;
+  // z-index: 3;
 }
 
 .inner-dropdown {
