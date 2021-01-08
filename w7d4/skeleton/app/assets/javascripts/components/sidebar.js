@@ -2,7 +2,7 @@
 
 // dropdown function that applies or removes 'expand' class to the sections-sidebar nav
 const toggleSidebar = () => {
-	$("#sections-sidebar").toggleClass('expand');
+	$(".sections-sidebar").toggleClass('expand');
 }
 
 const toggleSideBarIfExpanded = (e) => {
@@ -18,6 +18,6 @@ $(() => $('#sections-sidebar-btn').on('click', toggleSidebar));
 
 // Close an expanded sidebar after 1 second if mouse leaves sidebar element
 // Incomplete feature because sidebar does not remain open if mouse reenters element
-$(() => $('#sections-sidebar').mouseleave(toggleSideBarIfExpanded));
+$(() => $('.sections-sidebar').mouseleave(toggleSideBarIfExpanded));
 
 
