@@ -12,9 +12,10 @@
 .left-nav {
   float: left;
   > ul {
-    display: flex;
-    align-content: row;
+    // display: flex;
+    // align-content: row;
     > li {
+      float: left;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 15px;
       text-transform: uppercase;
@@ -29,11 +30,12 @@
 .right-nav  {
   float: right;
   > ul {
-    display: flex;
-    align-content: row;
-    justify-content: space-between;
+    // display: flex;
+    // align-content: row;
+    // justify-content: space-between;
     
     > li {
+      float: left;
       margin: 5px;
 
     }
