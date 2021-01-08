@@ -6,4 +6,43 @@
   .left-nav{
     margin: 0px;
   }
+
+
+}
+
+.side-bar-dropdown {
+  opacity: 0;
+}
+
+.side-bar-dropdown:expand {
+  opacity: 1;
+}
+
+.side-bar-dropdown {
+  position: relative;
+}
+
+.side-bar-dropdown > ul {
+  display: none;
+  position: absolute;
+  /* use top, left, right, bottom to position */
+}
+.side-bar-dropdown:hover > ul {
+  /* applies the following style to uls inside .dropdown */
+  /* but only when .dropdown is being hovered over */
+  display: block;
+}
+
+.inner-dropdown {
+  position: relative;
+}
+.inner-dropdown > ul {
+  display: none;
+  position: absolute;
+  /* use top, left, right, bottom to position */
+}
+.inner-dropdown:hover > ul {
+  /* applies the following style to uls inside .dropdown */
+  /* but only when .dropdown is being hovered over */
+  display: block;
 }

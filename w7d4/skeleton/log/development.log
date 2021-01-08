@@ -1236,3 +1236,37 @@ Completed 200 OK in 103ms (Views: 99.7ms | ActiveRecord: 0.0ms)
 
 Started GET "/assets/AA_Times_Logo.png" for ::1 at 2021-01-08 11:49:36 -0800
 Started GET "/assets/new_office.jpg" for ::1 at 2021-01-08 11:49:36 -0800
+Started GET "/" for ::1 at 2021-01-08 14:32:00 -0800
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_sections_sidebar.html.erb (1.0ms)
+  Rendered shared/_gear_dropdown.html.erb (0.4ms)
+  Rendered shared/_main_nav.html.erb (55.9ms)
+  Rendered shared/_masthead.html.erb (4.5ms)
+  Rendered shared/_sections_nav.html.erb (0.3ms)
+  Rendered shared/_search_modal.html.erb (0.3ms)
+  Rendered shared/_main_content.html.erb (0.8ms)
+  Rendered static_pages/index.html.erb within layouts/application (179.2ms)
+Completed 200 OK in 2945ms (Views: 2936.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e064f72d9ba6797fe4a8928bc66a493176be98d75b78d397eb297cba87d47360.css?body=1" for ::1 at 2021-01-08 14:32:03 -0800
+Started GET "/assets/AA_Times_Logo.png" for ::1 at 2021-01-08 14:32:03 -0800
+Started GET "/assets/new_office.jpg" for ::1 at 2021-01-08 14:32:03 -0800
+Started GET "/" for ::1 at 2021-01-08 14:45:52 -0800
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_sections_sidebar.html.erb (1.0ms)
+  Rendered shared/_gear_dropdown.html.erb (1.2ms)
+  Rendered shared/_main_nav.html.erb (38.1ms)
+  Rendered shared/_masthead.html.erb (1.2ms)
+  Rendered shared/_sections_nav.html.erb (0.4ms)
+  Rendered shared/_search_modal.html.erb (0.2ms)
+  Rendered shared/_main_content.html.erb (0.6ms)
+  Rendered static_pages/index.html.erb within layouts/application (179.5ms)
+Completed 200 OK in 1223ms (Views: 1201.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-d55bfe42129742d13301caa5c6b75c825f7fd74f1c5722c8e955394e6b7559ad.css?body=1" for ::1 at 2021-01-08 14:45:54 -0800
+Started GET "/assets/AA_Times_Logo.png" for ::1 at 2021-01-08 14:45:54 -0800
+Started GET "/assets/new_office.jpg" for ::1 at 2021-01-08 14:45:54 -0800
