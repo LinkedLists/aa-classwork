@@ -12,14 +12,15 @@
 
 .sections-sidebar {
   opacity: 0;
-  position: absolute;
+  position: fixed;
   float: left;
   // top: 10px;
   // bottom: 0px;
   // top: 0px;
   // right: 150px;
-  // left: 0px;
-  // z-index: 0;
+  left: 0px;
+  min-width: 250px;
+  z-index: 3;
 }
 
 .sections-sidebar.expand {
@@ -30,11 +31,19 @@
 .sections-sidebar > ul {
   display: none;
   position: absolute;
+ 
   // top: 0px;
   // left: auto;
   // bottom: 300px;
   /* use top, left, right, bottom to position */
+  
 }
+
+.sections-sidebar > li {
+  margin: 3px;
+  padding: 3px;
+}
+
 .sections-sidebar:hover > ul {
   /* applies the following style to uls inside .dropdown */
   /* but only when .dropdown is being hovered over */
@@ -42,19 +51,19 @@
   // z-index: 3;
 }
 
-.inner-dropdown {
-  position: relative;
-}
+// .inner-dropdown {
+//   position: relative;
+// }
 .inner-dropdown > ul {
   display: none;
   position: absolute;
   /* use top, left, right, bottom to position */
 }
-.inner-dropdown:hover > ul {
-  /* applies the following style to uls inside .dropdown */
-  /* but only when .dropdown is being hovered over */
-  display: block;
-}
+// .inner-dropdown:hover > ul {
+//   /* applies the following style to uls inside .dropdown */
+//   /* but only when .dropdown is being hovered over */
+//   display: block;
+// }
 
 // .dropdown li {
 //   position: relative;
