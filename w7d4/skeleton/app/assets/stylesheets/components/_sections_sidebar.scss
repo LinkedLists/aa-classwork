@@ -15,9 +15,10 @@
   position: fixed;
   float: left;
   // top: 10px;
-  // bottom: 0px;
+  bottom: 0px;
   // top: 0px;
   // right: 150px;
+  top: 0px;
   left: 0px;
   min-width: 250px;
   z-index: 3;
@@ -54,12 +55,18 @@
 // .inner-dropdown {
 //   position: relative;
 // }
-.inner-dropdown > ul {
+.inner-dropdown {
   display: none;
   position: absolute;
+
   /* use top, left, right, bottom to position */
 }
-// .inner-dropdown:hover > ul {
+
+.yo:hover .inner-dropdown{
+  display: block;
+  background: green;
+}
+// .inner-dropdown:hover {
 //   /* applies the following style to uls inside .dropdown */
 //   /* but only when .dropdown is being hovered over */
 //   display: block;
