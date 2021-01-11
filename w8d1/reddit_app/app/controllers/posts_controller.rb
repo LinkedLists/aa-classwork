@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @subs = Sub.all
     render :new
   end
 
