@@ -12,19 +12,21 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
-  validates :title, :sub_id, :user_id, presence: true
+  validates :title, :sub_ids, :user_id, presence: true
   
-  def sub_ids=(arr)
-    arr.each do |sub_id|
-      PostSub.create(sub_id: sub_id, post_id: self.id)
-    end
-  end
+  # def sub_ids=(arr)
+  #   debugger
+  #   arr.each do |sub_id|
+  #     PostSub.create(sub_id: sub_id, post_id: self.id)
+  #   end
+  # end
 
   belongs_to :author,
   foreign_key: :user_id,
   class_name: :User
 
-  has_many :post_subs, inverse_of: :post
+  has_many :post_subs, 
+  inverse_of: :post,
   foreign_key: :post_id,
   class_name: :PostSub
 
