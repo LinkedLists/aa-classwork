@@ -18,6 +18,26 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def edit
+    @user = User.new
+    render :edit
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    if @user
+      if @user.update(user_params)
+        redirect_to user_url(@user)
+      else
+        flash.now[:errors] = @user.errors.full_messages
+        render :edit
+      end
+    else
+      flash[:errors] = ["User not found"]
+      redirect_to new_user_url #fix redirect later
+    end
+  end
+
   private
 
   def user_params
