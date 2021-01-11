@@ -14,13 +14,23 @@
 class Post < ApplicationRecord
   validates :title, :sub_id, :user_id, presence: true
   
-  belongs_to :sub,
-  foreign_key: :sub_id,
-  class_name: :Sub
+  def sub_ids=(arr)
+    arr.each do |sub_id|
+      PostSub.create(sub_id: sub_id, post_id: self.id)
+    end
+  end
 
   belongs_to :author,
   foreign_key: :user_id,
   class_name: :User
+
+  has_many :post_subs, inverse_of: :post
+  foreign_key: :post_id,
+  class_name: :PostSub
+
+  has_many :subs,
+  through: :post_subs,
+  source: :sub
 
 
 end
