@@ -8,8 +8,8 @@ class SubsController < ApplicationController
     end
 
     def create
-        @sub = Sub.new
-        @sub.user_id = params[:user_id]
+        @sub = Sub.new(sub_params)
+        @sub.user_id = params[:sub][:user_id]
         if @sub.save
             redirect_to sub_url(@sub)
         else
