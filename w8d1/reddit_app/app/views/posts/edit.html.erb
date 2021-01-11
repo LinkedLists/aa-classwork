@@ -13,7 +13,7 @@
 
     <label>Sub:
       <% @subs.each do |sub| %>
-        <input type="checkbox" name="post[sub_id][]" value=<%= sub.id %> <% if ""  %>Checked<% end %>>
+        <input type="checkbox" name="post[sub_ids][]" value=<%= sub.id %> <% "checked" if @post.sub_id.include?(sub.id) %>>
         <label><%= sub.title %></label>
       <% end %>
     </label>
