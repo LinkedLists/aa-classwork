@@ -50,8 +50,8 @@ class SubsController < ApplicationController
 
     def require_is_moderator
         unless current_user.id == Sub.find_by_id(params[:id]).user_id
-            flash.now[:errors] = ["Sub can only be edited by the moderator"]
-            render :edit
+            flash[:errors] = ["Sub can only be edited by the moderator"]
+            redirect_to subs_url
         end
     end
 

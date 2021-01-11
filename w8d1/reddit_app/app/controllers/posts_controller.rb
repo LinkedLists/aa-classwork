@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :require_is_author, only: [:update]
+  before_action :require_logged_in, only: [:create, :update]
+
   def new
     @post = Post.new
     render :new
@@ -27,6 +30,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def require_is_author
+    unless current_user.id == Post.find_by_id(params[:id]).user_id
+      flash[:errors] = ["Post can only be edited by the author"]
+      redirect_to post_url(params[:id])
+    end
   end
 
   private
