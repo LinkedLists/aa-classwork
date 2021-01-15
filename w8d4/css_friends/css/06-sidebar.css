@@ -1,0 +1,33 @@
+/* PHASE 0: Sidebar */
+
+.content-sidebar {
+  display: grid;
+  grid-column: 1fr 1fr 1fr;
+}
+
+a {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+.profile-picture {
+  margin-top: -70px;
+  position: relative; /* stacking position affects pos relative */
+}
+
+.profile-nav li {
+  border-bottom: 1px solid gray;
+}
+
+.profile-nav > li:first-child {
+  margin-top: 20px;
+  border-top: 1px solid gray;
+}
+
+.profile-nav li:hover {
+  background: lightgray;
+  cursor: pointer;
+}
