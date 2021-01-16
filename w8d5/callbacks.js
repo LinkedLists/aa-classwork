@@ -110,7 +110,15 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
   if (i == arr.length - 1) {
     outerBubbleSortLoop(madeAnySwaps)
   } else {
-    askIfGreaterThan(arr[i], arr[i+1], innerBubbleSortLoop)
+    askIfGreaterThan(arr[i], arr[i+1], function (isGreater) {
+      if (isGreater) {
+        let temp  = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        madeAnySwaps = true;
+      }
+    }); 
+    innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop);
   }
   // 2. Else, use `askIfGreaterThan` to compare `arr[i]` and `arr[i +
   //    1]`. Swap if necessary. Call `innerBubbleSortLoop` again to
@@ -125,6 +133,9 @@ function absurdBubbleSort(arr, sortCompletionCallback) {
   function outerBubbleSortLoop(madeAnySwaps) {
     // Begin an inner loop if you made any swaps. Otherwise, call
     // `sortCompletionCallback`.
+    if (madeAnySwaps) {
+      innerBubbleSortLoop(arr, 0, false, outerBubbleSortLoop)
+    }
   }
 
   // Kick the first outer loop off, starting `madeAnySwaps` as true.
