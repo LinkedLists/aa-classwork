@@ -8,7 +8,7 @@
   // }
   //Zach's example... cb and myFunct are the same
   let cb = function(el) {
-    return el*2;
+    return el;
   }
 Array.prototype.myEach = function(cb) {
   for (i=0; i<this.length; i++){
@@ -36,7 +36,8 @@ Array.prototype.myMap = function(cb) {
 Array.prototype.myReduce = function(cb, initial) {
   let acc = initial;
   acc ||= this[0];
-  this.myEach( el => acc += cb(el))
+  arr = this.slice(1) //prevent over count from first element
+  arr.myEach( el => acc += cb(el))
   return acc;
 }
 // let cb = function (el) {
