@@ -100,7 +100,7 @@ class FollowToggle {
     this.userId = $el.data('user-id');
     this.followState = $el.data("initial-follow-state");
 
-    render();
+    this.render();
   }
 
   render() {
@@ -109,6 +109,18 @@ class FollowToggle {
     } else if (this.followState === 'followed') {
       this.$el.text('Unfollow!');
     }
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    
+    $.ajax({
+      url: `/users/${this.userId}/follow`,
+      type: "POST",
+      success() {this.render()},
+      error() {},
+    })
+
   }
 }
 
@@ -128,9 +140,9 @@ const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/f
 $(() => {
   console.log('sdf');
   const $followToggle = $('.follow-toggle');
-  debugger
-  $followToggle.forEach((ele) => {
-    const f_toggle = new FollowToggle(ele);
+  $followToggle.each((_, ele) => {
+    const f_toggle = new FollowToggle($(ele));
+    ele.on()
   })
 });
 

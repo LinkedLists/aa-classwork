@@ -5,7 +5,7 @@ class FollowToggle {
     this.userId = $el.data('user-id');
     this.followState = $el.data("initial-follow-state");
 
-    render();
+    this.render();
   }
 
   render() {
@@ -14,6 +14,18 @@ class FollowToggle {
     } else if (this.followState === 'followed') {
       this.$el.text('Unfollow!');
     }
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    
+    $.ajax({
+      url: `/users/${this.userId}/follow`,
+      type: "POST",
+      success() {this.render()},
+      error() {},
+    })
+
   }
 }
 
