@@ -1,0 +1,43 @@
+body, head, html, ul, li, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+  background: transparent;
+  list-style-type: none;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  width: 250px;
+}
+
+li {
+  width: 70px;
+  height: 70px;
+  border: 5px solid black;
+  background: gray;
+  cursor: pointer;
+}
+
+li:hover {
+  background: yellow;
+}
+
+.x {
+  background: white;
+  font-size: 20px;
+}
+
+.o {
+  background: white;
+  font-size: 20px;
+}
+
+.game_over {
+  background: white;
+  color: black;
+}
