@@ -99,6 +99,16 @@ class FollowToggle {
     this.$el     = $el;
     this.userId = $el.data('user-id');
     this.followState = $el.data("initial-follow-state");
+
+    render();
+  }
+
+  render() {
+    if(this.followState === 'unfollowed'){
+      this.$el.text('Follow!');
+    } else if (this.followState === 'followed') {
+      this.$el.text('Unfollow!');
+    }
   }
 }
 
@@ -114,8 +124,14 @@ module.exports = FollowToggle;
 /***/ (function(module, exports, __webpack_require__) {
 
 const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
+
 $(() => {
-  console.log('sdf')
+  console.log('sdf');
+  const $followToggle = $('.follow-toggle');
+  debugger
+  $followToggle.forEach((ele) => {
+    const f_toggle = new FollowToggle(ele);
+  })
 });
 
 /***/ })
