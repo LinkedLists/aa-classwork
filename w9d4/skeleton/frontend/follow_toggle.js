@@ -19,13 +19,18 @@ class FollowToggle {
   handleClick(event) {
     event.preventDefault();
     
+    const post_type  = this.followState === "followed" ? "DELETE" : "POST";
+    this.followState = this.followState === "unfollowed" ? "followed" : "unfollowed";
+    let that = this;
     $.ajax({
       url: `/users/${this.userId}/follow`,
-      type: "POST",
-      success() {this.render()},
-      error() {},
+      type: post_type,
+      success() {
+        that.render();
+        debugger;
+      },
+      error(e) { alert("whoops"); debugger},
     })
-
   }
 }
 

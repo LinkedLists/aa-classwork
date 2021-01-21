@@ -114,13 +114,18 @@ class FollowToggle {
   handleClick(event) {
     event.preventDefault();
     
+    const post_type  = this.followState === "followed" ? "DELETE" : "POST";
+    this.followState = this.followState === "unfollowed" ? "followed" : "unfollowed";
+    let that = this;
     $.ajax({
       url: `/users/${this.userId}/follow`,
-      type: "POST",
-      success() {this.render()},
-      error() {},
+      type: post_type,
+      success() {
+        that.render();
+        debugger;
+      },
+      error(e) { alert("whoops"); debugger},
     })
-
   }
 }
 
@@ -142,7 +147,8 @@ $(() => {
   const $followToggle = $('.follow-toggle');
   $followToggle.each((_, ele) => {
     const f_toggle = new FollowToggle($(ele));
-    ele.on()
+    //debugger
+    $(ele).on('click', event => f_toggle.handleClick(event));
   })
 });
 
