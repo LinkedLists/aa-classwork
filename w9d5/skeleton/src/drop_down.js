@@ -12,7 +12,7 @@ const dogs = {
 function dogLinkCreator(dogs) {
 
   const dogArr = [];
-
+  
   for (const name in dogs) {
     const a = document.createElement("a");
     a.innerHTML = name;
@@ -22,9 +22,16 @@ function dogLinkCreator(dogs) {
     li.append(a);
     dogArr.push(li)
   }
+
+  return dogArr;
 }
 
-function attachDogLinks(){
-  dogLinkCreator(dogs);
+function attachDogLinks(dogs){
+  const ul = document.querySelector(".drop-down-dog-list")
+  const dogLinks = dogLinkCreator(dogs);
+  dogArr.forEach( (li) => {
+    ul.append(li);
+  });
 }
 
+attachDogLinks(dogs);
