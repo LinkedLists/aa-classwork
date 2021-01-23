@@ -9,8 +9,9 @@ const dogs = {
   "French Bulldog": "https://www.akc.org/dog-breeds/french-bulldog/" 
 };
 
+// export const dogLinkCreator = (dogs) => {
 function dogLinkCreator(dogs) {
-
+  // debugger
   const dogArr = [];
   
   for (const name in dogs) {
@@ -20,27 +21,20 @@ function dogLinkCreator(dogs) {
     const li = document.createElement("li");
     li.classList = "dog-link";
     li.append(a);
-    dogArr.push(li)
+    dogArr.push(li);
   }
 
   return dogArr;
 }
 
 function attachDogLinks(dogs){
-  const ul = document.querySelector(".drop-down-dog-list")
+  const ul = document.querySelector(".drop-down-dog-list");
   const dogLinks = dogLinkCreator(dogs);
   dogArr.forEach( (li) => {
     ul.append(li);
   });
 }
-
-
-const li = document.createElement("li");
-li.innerText = "asdf";
-const ul = document.querySelector(".drop-down-dog-list");
-ul.append(li);
-
-
+// debugger
 attachDogLinks(dogs); //where are the dogs???
 
 function handleEnter() {
@@ -59,5 +53,6 @@ function handleLeave() {
 
 
 const nav = document.querySelector(".drop-down-dog-nav");
+
 nav.addEventListener('mouseenter', handleEnter);
 nav.addEventListener('mouseleave', handleLeave);
