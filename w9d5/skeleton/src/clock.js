@@ -63,7 +63,4 @@ class Clock {
 const clockElement = document.getElementById("clock");
 const clock = new Clock;
 
-const li = document.createElement("li");
-const ul = document.querySelector(".drop-down-dog-list");
-ul.appendChild(li);
 // htmlGenerator(time, clockElement);

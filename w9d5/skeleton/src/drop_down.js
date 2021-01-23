@@ -34,4 +34,30 @@ function attachDogLinks(dogs){
   });
 }
 
-attachDogLinks(dogs);
+
+const li = document.createElement("li");
+li.innerText = "asdf";
+const ul = document.querySelector(".drop-down-dog-list");
+ul.append(li);
+
+
+attachDogLinks(dogs); //where are the dogs???
+
+function handleEnter() {
+  const dogLink = document.querySelector(".dog-link");
+  dogLink.addEventListener("mouseenter", (ele) => {
+    ele.classList.remove("hidden");
+  })
+}
+
+function handleLeave() {
+  const dogLink = document.querySelector(".dog-link");
+  dogLink.addEventListener("mouseleave", (ele) => {
+    ele.classList.add("hidden");
+  })
+}
+
+
+const nav = document.querySelector(".drop-down-dog-nav");
+nav.addEventListener('mouseenter', handleEnter);
+nav.addEventListener('mouseleave', handleLeave);
