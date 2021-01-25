@@ -18,23 +18,30 @@ class DOMNodeCollection{
     }
 
     append(child){
-        this.forEach( (node) => {
+        this.nodesArray.forEach( (node) => {
+            if(typeof node === 'string'){
+                node.innerHTML += child;
+            } else if (node instanceof HTMLElement){
+                node.appendChild(child);
+            }else ()
+            
+        
             node.innerHTML += child;
-        })
+        });
     }
 
     attr() {}
 
     addClass(newClass) {
         this.forEach( (node) => {
-            node.classList.add(newClass)
-        })
+            node.classList.add(newClass);
+        });
     }
 
     removeClass(oldClass) {
         this.forEach( (node) => {
-            node.classList.remove(oldClass)
-        })
+            node.classList.remove(oldClass);
+        });
     }
 
 }
