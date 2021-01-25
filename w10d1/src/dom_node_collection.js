@@ -36,10 +36,10 @@ class DOMNodeCollection{
     attr(key, val) {
         if (typeof val === 'string') {
             this.nodesArray.forEach((node) => {
-                node.setAttribute(key, val)
-            })
+                node.setAttribute(key, val);
+            });
         } else {
-            return this.nodesArray[0].getAttribute(key)
+            return this.nodesArray[0].getAttribute(key);
         }
         
     }
@@ -54,6 +54,25 @@ class DOMNodeCollection{
         this.forEach( (node) => {
             node.classList.remove(oldClass);
         });
+    }
+
+    children(){
+       let childArray = [];
+       this.nodesArray.forEach((node) =>{
+            let temp = node.children;
+            if(temp.length){
+                temp = Array.from(temp);
+                childArray = childArray.concat(temp);
+            }
+
+       });
+       return new DOMNodeCollection(childArray);
+    }
+
+    parent(){
+       this.nodesArray
+
+       // a --> b --> c
     }
 
 }
