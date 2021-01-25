@@ -17,6 +17,26 @@ class DOMNodeCollection{
         this.html('');
     }
 
+    append(child){
+        this.forEach( (node) => {
+            node.innerHTML += child;
+        })
+    }
+
+    attr() {}
+
+    addClass(newClass) {
+        this.forEach( (node) => {
+            node.classList.add(newClass)
+        })
+    }
+
+    removeClass(oldClass) {
+        this.forEach( (node) => {
+            node.classList.remove(oldClass)
+        })
+    }
+
 }
 
 module.exports = DOMNodeCollection;
