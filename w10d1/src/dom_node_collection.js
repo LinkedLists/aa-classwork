@@ -18,22 +18,24 @@ class DOMNodeCollection{
     }
 
     append(child){
-        debugger
+        //debugger
         this.nodesArray.forEach( (node) => {
             if(typeof child === 'string'){
                 node.innerHTML += child;
             } else if (child instanceof HTMLElement){
                 node.appendChild(child.cloneNode());
             }else {
-                child.forEach( (ele) => {
-                    node.appendChild(ele);
-                })
+                child.each( (ele) => {
+                    node.appendChild(ele.cloneNode());
+                });
             }
             
         });
     }
 
-    attr() {}
+    attr(key, val) {
+
+    }
 
     addClass(newClass) {
         this.forEach( (node) => {
