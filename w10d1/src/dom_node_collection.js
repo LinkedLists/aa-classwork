@@ -18,15 +18,18 @@ class DOMNodeCollection{
     }
 
     append(child){
+        debugger
         this.nodesArray.forEach( (node) => {
-            if(typeof node === 'string'){
+            if(typeof child === 'string'){
                 node.innerHTML += child;
-            } else if (node instanceof HTMLElement){
-                node.appendChild(child);
-            }else ()
+            } else if (child instanceof HTMLElement){
+                node.appendChild(child.cloneNode());
+            }else {
+                child.forEach( (ele) => {
+                    node.appendChild(ele);
+                })
+            }
             
-        
-            node.innerHTML += child;
         });
     }
 
