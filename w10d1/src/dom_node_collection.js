@@ -70,9 +70,26 @@ class DOMNodeCollection{
     }
 
     parent(){
-       this.nodesArray
+        let parentArr = [];
+        this.nodesArray.forEach((node) =>{
+            let temp = node.children;
+            if(temp.length){
+                parentArr.push(node);
+            }
 
+       });
+       return new DOMNodeCollection(parentArr)
        // a --> b --> c
+    }
+
+    find(selector) {
+        let foundNodes = [];
+        this.nodesArray.forEach( (node) => {
+            let nodeList = node.querySelectorAll(selector)
+            foundNodes = foundNodes.concat(Array.from(nodeList))
+        })
+
+        return new DOMNodeCollection(foundNodes)
     }
 
 }
