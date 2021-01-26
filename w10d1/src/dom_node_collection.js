@@ -78,18 +78,31 @@ class DOMNodeCollection{
             }
 
        });
-       return new DOMNodeCollection(parentArr)
+       return new DOMNodeCollection(parentArr);
        // a --> b --> c
     }
 
     find(selector) {
         let foundNodes = [];
         this.nodesArray.forEach( (node) => {
-            let nodeList = node.querySelectorAll(selector)
-            foundNodes = foundNodes.concat(Array.from(nodeList))
-        })
+            let nodeList = node.querySelectorAll(selector);
+            foundNodes = foundNodes.concat(Array.from(nodeList));
+        });
 
-        return new DOMNodeCollection(foundNodes)
+        return new DOMNodeCollection(foundNodes);
+    }
+
+    remove(){
+        this.nodesArray.forEach((el) => {
+            el.innerHTML = undefined;
+        });
+    }
+   on(event, callback){
+        this.addEventListener(event, callback);
+   }
+
+    off(event, callback) {
+        this.removeEventListener(event, callback);
     }
 
 }
