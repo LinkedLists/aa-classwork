@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from "./board"
-import Minesweeper from "./minesweeper"
+import * as Minesweeper from "./minesweeper"
 
 class Game extends React.Component {
   constructor(props) {

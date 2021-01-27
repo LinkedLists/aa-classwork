@@ -1,3 +1,5 @@
+import React from 'react';
+
 export class Tile {
     constructor(board, pos) {
         this.board = board;
@@ -125,4 +127,4 @@ export class Board {
     }
 }
 
-export default Minesweeper;
+// export default Minesweeper;
