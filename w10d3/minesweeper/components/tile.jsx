@@ -10,7 +10,7 @@ class Tile extends React.Component {
   render() {
     let tile = this.props.tile;
     let bombCount = tile.adjacentBombCount();
-    let display = "T";
+    let display = " ";
     let tClass;
 
     if(tile.explored){
@@ -35,9 +35,9 @@ class Tile extends React.Component {
 
   handleClick(e) {
     let flagged = false;
-    if (e.altkey) flagged = true;
-    console.log("wowof flaged")
-    // this.props.updateGame(this.props.tile, flagged)
+    if (e.shiftlKey) flagged = true;
+    console.log("click")
+    this.props.updateGame(this.props.tile, flagged)
   }
 }
 
