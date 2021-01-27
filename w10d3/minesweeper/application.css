@@ -5,10 +5,20 @@
 }
 
 .tile-row{
-    border: 2px solid black;
-    width: 480px;
+  width: 480px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
 }
 
 .tile-container{
-    width: 50px;
+  background: lightgray;
+  border-style: outset;
+  border: 1px solid black;
+  width: 50px;
+}
+
+.tile {
+  display: flex;
+  justify-content: center;
 }
