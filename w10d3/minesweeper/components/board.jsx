@@ -10,10 +10,10 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-        {this.props.board.map((tileArr, i) => {
-          <div key={`row-${i}`}>{tileArr.map((tile, j) => {
-            // let newTile = new Minesweeper.Tile(this.props.board, [i, j]);
-            // <div key={`tile-${i}, ${j}`}><Tile tile={newTile} updateGame={this.props.updateGame}/></div>
+        <h2>Board rendering</h2>
+        {this.props.board.grid.map((tileArr, i) => {
+          return <div key={`row-${i}`}>{tileArr.map((tile, j) => {
+            return <div key={`tile-${i}, ${j}`}><Tile tile={tile} updateGame={this.props.updateGame}/></div>
           })}</div>
         })}
       </div>
