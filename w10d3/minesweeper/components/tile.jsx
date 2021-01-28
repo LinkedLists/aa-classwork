@@ -9,8 +9,8 @@ class Tile extends React.Component {
 
   handleClick(e) {
     let flagged = false;
-    console.log(e.altKey)
-    if (e.altKey === true) {
+    // console.log(e.altKey)
+    if (e.shiftKey === true) {
       flagged = true
     };
     console.log(flagged)
@@ -26,10 +26,9 @@ class Tile extends React.Component {
     if(tile.explored){
       if(bombCount){
         display = bombCount;
-        tClass = "explored";
       }
+      tClass = "explored";
     } else if(tile.flagged){
-      debugger
       display = "F"
       tClass = "flagged"
     } else if (tile.bombed) {

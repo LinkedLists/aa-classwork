@@ -111,6 +111,7 @@ export class Board {
                 }
             });
         });
+        debugger
         return lost;
     }
 

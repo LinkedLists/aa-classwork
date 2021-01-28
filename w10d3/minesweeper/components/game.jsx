@@ -7,6 +7,7 @@ class Game extends React.Component {
     super(props);
     this.state = { board: new Minesweeper.Board(9, 10) };
     this.updateGame = this.updateGame.bind(this);
+    this.gameState = this.state.board.won();
   }
 
   updateGame(tile, flagged) {
@@ -14,6 +15,11 @@ class Game extends React.Component {
       tile.toggleFlag();
     }else{
       tile.explore();
+    }
+    if(tile.board.won()){
+
+    }else if(tile.board.lost()){
+      
     }
     this.setState({ board: tile.board })
   }
