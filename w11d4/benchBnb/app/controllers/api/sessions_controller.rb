@@ -11,15 +11,15 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       redirect_to users_url
     else
-      flash[:errors] = ["invalid username or password"]
-      render :new
+      render json: ["User not found"], status: 404
     end
   end
 
   def destroy
     if logout!
+      render json: { }
     else
-      flash.now[:errors] = @user.errors.full_messages
+      render json: ["Can't logout"], status: 404
     end
   end
 end
