@@ -1,10 +1,10 @@
 class Api::UsersController < ApplicationController
-  
+  skip_before_action :verify_authenticity_token 
   def create
     @user = User.new(params.require(:user).permit(:username, :password))
 
     if @user.save!
-      login!(user) #(in application controller)
+      login!(@user) #(in application controller)
       render :show
     else
       render json: ["Username exists or password is too short"], status: 404
