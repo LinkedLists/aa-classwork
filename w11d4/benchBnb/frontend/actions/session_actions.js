@@ -19,7 +19,7 @@ const receiveERRORS = (errors) => ({
 })
 
 export const login = (user) => (dispatch) => (
-  login(user).then( user => dispatch(receiveCurrentUser(user)))
+  login(user).then( user => dispatch(receiveCurrentUser(user)) ).catch(dispatch(receiveERRORS))
 )
 
 export const logout = () => (dispatch) => (
@@ -27,5 +27,5 @@ export const logout = () => (dispatch) => (
 )
 
 export const signup = (user) => (dispatch) => (
-  signup(user).then( user => dispatch(receiveCurrentUser(user))).catch(dispatch(receiveERRORS))
+  signup(user).then( user => dispatch(receiveCurrentUser(user)) ).catch(dispatch(receiveERRORS))
 )
