@@ -20,23 +20,41 @@
 // stepper([3, 1, 0, 5, 10]);           // => true, because we can step through elements 3 -> 5 -> 10
 // stepper([3, 4, 1, 0, 10]);           // => true, because we can step through elements 3 -> 4 -> 10
 // stepper([2, 3, 1, 1, 0, 4, 7, 8])    // => false, there is no way to step to the end
-function stepper(nums) {
-    // fill false
-    let table = new Array(nums.length).fill(false);
-    // must start at first position
-    table[0] = true
 
-    for (i = 0; i < nums.length; i++) {
-        if (table[i] === true) {
-            // set everything within the stepping range of nums[i] to true
-            for (j = i; j <= nums[i]; j++) {
-                table[j] = true
-            } 
+// function stepper(nums) {
+//     // fill false
+//     let table = new Array(nums.length).fill(false);
+//     // must start at first position
+//     table[0] = true
+
+//     for (i = 0; i < nums.length; i++) {
+//         if (table[i] === true) {
+//             // set everything within the stepping range of nums[i] to true
+//             for (j = i; j <= nums[i]; j++) {
+//                 table[j] = true
+//             } 
+//         }
+//     }
+//     // can you hit the last element?
+//     return table.pop()
+// }
+
+function stepper(nums, memo = {}) {
+    // nums is an array so it does not make for a good key?
+    let key = String(nums)
+    if (key in memo) return memo[key]
+    if (nums.length === 0) return true;
+
+    // recursively search every branch within your step range
+    for (i = 1; i <= nums[0]; i++) {
+        if (stepper(nums.slice(i), memo)) {
+            memo[key] = true;
+            return true
         }
     }
-    // can you hit the last element?
-    return table.pop()
+    return false
 }
+
 
 
 // Write a function, maxNonAdjacentSum(nums), that takes in an array of nonnegative numbers.
@@ -49,25 +67,42 @@ function stepper(nums) {
 //
 // maxNonAdjacentSum([2, 7, 9, 3, 4])   // => 15, because 2 + 9 + 4
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6 
-function maxNonAdjacentSum(nums) {
-    // if nums is an empty array
-    // nums === [] will always be false
+
+// function maxNonAdjacentSum(nums) {
+//     // if nums is an empty array
+//     // nums === [] will always be false
+//     if (nums.length === 0) return 0
+//     let table = new Array(nums.length).fill(0);
+//     table[0] = nums[0]
+
+//     for (i = 1; i < nums.length; i++) {
+//         // grab nearest nonadjacent num
+//         let skippedLeft = table[i - 2] === undefined ? 0 : table[i - 2];
+//         // sum nearest nonadjacent num to current num
+//         let sumSkippedLeft = skippedLeft + nums[i];
+//         // left adjacent num
+//         let ignoreLeftSum = table[i - 1];
+//         // take the sum or just grab the adjacent number
+//         table[i] = Math.max(sumSkippedLeft, ignoreLeftSum);
+//     }
+
+//     return table.pop()
+// }
+
+function maxNonAdjacentSum(nums, memo = {}) {
+    // let key = String(nums);
+    // nums is an array but its always getting sliced
+    if (nums.length in memo) return memo[nums.length];
     if (nums.length === 0) return 0
-    let table = new Array(nums.length).fill(0);
-    table[0] = nums[0]
+    
+    let first = nums[0];
 
-    for (i = 1; i < nums.length; i++) {
-        // grab nearest nonadjacent num
-        let skippedLeft = table[i - 2] === undefined ? 0 : table[i - 2];
-        // sum nearest nonadjacent num to current num
-        let sumSkippedLeft = skippedLeft + nums[i];
-        // left adjacent num
-        let ignoreLeftSum = table[i - 1];
-        // take the sum or just grab the adjacent number
-        table[i] = Math.max(sumSkippedLeft, ignoreLeftSum);
-    }
-
-    return table.pop()
+    
+    memo[nums.length] = Math.max(
+        first + maxNonAdjacentSum(nums.slice(2), memo), 
+        maxNonAdjacentSum(nums.slice(1), memo)
+    )
+    return memo[nums.length]
 }
 
 
