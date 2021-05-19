@@ -28,7 +28,71 @@
 
 function iterateAcrossLinkedListBackwards(linkedList) {
     // TODO: Implement the iterateAcrossLinkedListBackwards function here
+    const arrow = ' -> '
+    let stack = new Stack
+    let result = ''
 
+    if (linkedList.length === 0) return ''
+    if (linkedList.length === 1) return linkedList.head.value.toString()
+
+    let currentNode = linkedList.head
+
+    while (currentNode !== null) {
+        stack.push(currentNode.value)
+        currentNode = currentNode.next
+    }
+
+    while (stack.length !== 1) {
+        result += stack.pop() + arrow
+    }
+
+    return result += stack.pop()
+}
+
+class Node {
+    constructor(val) {
+        this.value = val;
+        this.next = null;
+    }
+}
+
+// Refactor the regular Stack below into a MinMaxStack!
+class Stack {
+    constructor() {
+        this.top = null;
+        this.bottom = null;
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+        if (!this.top) {
+            this.top = newNode;
+            this.bottom = newNode;
+        } else {
+            const temp = this.top;
+            this.top = newNode;
+            this.top.next = temp;
+        }
+        return ++this.length;
+    }
+
+    pop() {
+        if (!this.top) {
+            return null;
+        }
+        const temp = this.top;
+        if (this.top === this.bottom) {
+            this.bottom = null;
+        }
+        this.top = this.top.next;
+        this.length--;
+        return temp.value;
+    }
+
+    size() {
+        return this.length;
+    }
 }
 
 exports.iterateAcrossLinkedListBackwards = iterateAcrossLinkedListBackwards;
