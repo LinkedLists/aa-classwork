@@ -80,6 +80,39 @@ class Trie {
         }
    }
 
+   wordsWithPrefix(prefix, root=this.root) {
+       if (prefix.length === 0) {
+           let allWords = []
+    
+           if (root.isTerminal) {
+               allWords.push('')
+           }
+    
+           for (let letter in root.children) {
+               let child = root.children[letter]
+    
+               let suffix = this.wordsWithPrefix(prefix, child)
+    
+               suffix = suffix.map( suffix => letter + suffix)
+    
+               allWords.push(...suffix)
+           }
+    
+           return allWords
+       } else {
+           let letter = prefix[0]
+           let child = root.children[letter]
+           if (child === undefined) {
+               return []
+           } else {
+               let suffix = this.wordsWithPrefix(prefix.slice(1), root.children[letter])
+               let words = suffix.map( suffix => letter + suffix)
+               return words
+           }
+
+       }
+   }
+
 //    print(root=this.root) {
 //        for (let letter in root.children) {
 //            console.log(letter)
